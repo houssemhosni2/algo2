@@ -1,0 +1,86 @@
+Skip to content
+Why GitHub? 
+Team
+Enterprise
+Explore 
+Marketplace
+Pricing 
+Search
+
+Sign in
+Sign up
+Hakimchamakhi
+/
+checkpoint8
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+checkpoint8/problem_1_2.algo
+@Hakimchamakhi
+Hakimchamakhi Add files via upload
+Latest commit 4724b73 on 15 Feb
+ History
+ 1 contributor
+55 lines (50 sloc)  1.13 KB
+  
+ALGORITHM problem1_solution2
+VAR
+    t1,t2 <INTEGER,INTEGER>;
+    t3,t4: ARRAY_OF INTEGER[10];
+    test: BOOLEAN := False;
+    i,j,k,v,x,y,z,sum : INTEGER;
+BEGIN
+    Write("insert first hash table length : ");
+    Read(x);
+    FOR i FROM 0 TO x-1 DO
+        Read(k);
+        Read(v);
+        t1.insert(k,v);
+        t3[i]=k;
+    END_FOR
+
+    Write("insert second hash table length : ");
+    Read(y);
+    FOR j FROM 0 TO y-1 DO
+        Read(k);
+        Read(v);
+        t2.insert(k,v);
+        t4[j]=k;
+    END_FOR
+
+    k:=0;
+    sum:=0;
+    WHILE (k<x) DO
+    FOR z FROM 0 TO y-1 DO
+        IF (t1.get(t3[k])=t2.get(t4[z])) THEN
+            test:= True;
+        END_IF
+    END_FOR   
+    IF (test=false) THEN
+        sum:= sum + t1.get(t3[k]);
+    END_IF
+    k:= k+1;
+    END_WHILE
+
+    k:=0;
+    WHILE (k<y) DO
+    FOR z FROM 0 TO x-1 DO
+        IF (t1.get(t3[z])=t2.get(t4[k])) THEN
+            test:= True;
+        END_IF
+    END_FOR   
+    IF (test=false) THEN
+        sum:= sum + t2.get(t4[k]));
+    END_IF
+    k:= k+1;
+    END_WHILE
+
+
+    Write("The sum of all distinct elements :", sum);
+END

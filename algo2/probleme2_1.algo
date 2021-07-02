@@ -1,0 +1,30 @@
+ALGORITHM problem2_solution1
+VAR
+    t1,t2 : ARRAY_OF INTEGER[10];
+    i,j,k,x,y,z,sum : INTEGER;
+BEGIN
+    Write("insert first array length : ");
+    Read(x);
+    FOR i FROM 0 TO X-1 DO
+        Read(t1[i]);
+    END_FOR
+
+    Write("insert second array length : ");
+    Read(y);
+    FOR j FROM 0 TO y-1 DO
+        Read(t1[j]);
+    END_FOR
+
+    k:=0;
+    sum:=0;
+    WHILE (k<x) DO
+    FOR z FROM 0 TO y-1 DO
+        IF (t1[k]=t2[z]) THEN
+            sum:= sum + t1[k] + t2[z];
+        END_IF
+    END_FOR   
+    k:= k+1;
+    END_WHILE
+
+    Write("The Sum of overlapping elements :", sum);
+END
